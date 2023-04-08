@@ -2,35 +2,28 @@ const fullName = document.getElementById('name').value;
 const link = document.getElementById('link').value;
 const comment = document.getElementById('comment').value;
 const button = document.getElementById('button');
-/*const userName = document.getElementById('username');
-const image = document.getElementById('img');
-const commentresult = document.getElementById('commentresult');*/
 
-function addName () {
-    let finalName = fullName.toLowerCase().trim().split(/\s+/).map((word) =>{
-        return word[0].toUpperCase() + word.substring(1);
-        }).join(' ');
-        //userName.innerHTML = finalName;
-        
+function addName (name) {
+        let finalName = name.toLowerCase().trim().split(/\s+/).map((word) =>{
+            return word[0].toUpperCase() + word.substring(1);
+            }).join(' ');
+            return finalName;
+}
+function checkSpam (text) {
+    let commentFiltr = text.replace(/viagra/ig, "***").replace(/xxx/ig, "***");
+    return commentFiltr;
 }
 
-function checkSpam () {
-    let comment2 = comment.replace(/viagra/ig, "***").replace(/xxx/ig, "***");
-//commentresult.innerHTML = comment2;
-}
-/*button.addEventListener('click', addName);
-button.addEventListener('click', addImage);
-button.addEventListener('click', checkSpam);  */
-
-//function leaveComment (){
-    let userFullName = ;
+function leaveComment () {
+    let userFullName = addName(fullName);
     let image = link;
-    let commentText = ;
-    let parentDiv = document.querySelector('.result');
-parentDiv.innerHTML = `<h3>Комментарии:</h3><div class="user">
-<img src="${image}" alt="" id="img" /><h4 id="username">${userFullName}</h4></div><p id="commentresult">${commentText}</p>`;
+    let commentResult = checkSpam(comment);
+    let parentDiv = document.getElementById('result');
+parentDiv.innerHTML = parentDiv.innerHTML + `<div class="user">
+<img src="${image}" alt="" id="img" /><h4 id="username">${userFullName}</h4></div><p id="commentresult">${commentResult}</p>`;
+}
 
-//}
+button.addEventListener('click', leaveComment);
 
 
 
