@@ -21,7 +21,13 @@ function checkSpam () {
     let comment2 = comment.replace(/viagra/ig, "***").replace(/xxx/ig, "***");
 commentresult.innerHTML = comment2;
 }
-    
 button.addEventListener('click', addName);
 button.addEventListener('click', addImage);
-button.addEventListener('click', checkSpam);
+button.addEventListener('click', checkSpam);  
+
+/* 
+let parentDiv = document.querySelector('.result');
+parentDiv.innerHTML = `<h3>Комментарии:</h3><div class="user">
+<img src="..." alt="" id="img" /><h4 id="username"></h4></div><p id="commentresult"></p>`;*/
+
+
