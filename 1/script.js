@@ -1,6 +1,3 @@
-const fullName = document.getElementById('name').value;
-const link = document.getElementById('link').value;
-const comment = document.getElementById('comment').value;
 const button = document.getElementById('button');
 
 function addName (name) {
@@ -15,12 +12,16 @@ function checkSpam (text) {
 }
 
 function leaveComment () {
+    const fullName = document.getElementById('name').value;
+const link = document.getElementById('link').value;
+const comment = document.getElementById('comment').value;
     let userFullName = addName(fullName);
     let image = link;
     let commentResult = checkSpam(comment);
     let parentDiv = document.getElementById('result');
 parentDiv.innerHTML = parentDiv.innerHTML + `<div class="user">
-<img src="${image}" alt="" id="img" /><h4 id="username">${userFullName}</h4></div><p id="commentresult">${commentResult}</p>`;
+<img src="${image}" alt="" id="img" /><h4 id="username">${userFullName}</h4>
+</div><p id="commentresult">${commentResult}</p>`;
 }
 
 button.addEventListener('click', leaveComment);
